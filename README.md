@@ -9,9 +9,9 @@ eg :
     "BlueS.exe C:\personal\BlueS\test-input\"
 
 The programs prints the results as :
-    '''
-		Total number of libraries: 6
+    '''		
 
+		Total number of libraries: 6
 		File                                    ArchType
 		======                                  =========
 		libanw.14.so                            armeabi-v7a
