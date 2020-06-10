@@ -1,0 +1,5 @@
+File					ArchType
+======					=========
+libBreakpad.so			ARMV7ABI
+libphotoeffect			ARMV7ABI
+libstlport_shared.so			X86
