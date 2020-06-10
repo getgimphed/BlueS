@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char buffer[2];
+    char buffer[100];
     char path[255];
     if(argv[1] == NULL)
     {
@@ -40,8 +40,7 @@ int main(int argc, char *argv[])
 	//printing O/P from results.txt generated in DetectFileArch func 
 	FILE* file = fopen("results.txt", "rb");
 
-    char mystring [100];
-    while ( fgets (mystring , 100 , file) != NULL )
+    while ( fgets (buffer , 100 , file) != NULL )
 		cout<<mystring;	
     fclose(file);
     return 0;	
