@@ -39,12 +39,10 @@ int main(int argc, char *argv[])
 	closedir(dir);
 	//printing O/P from results.txt generated in DetectFileArch func 
 	FILE* file = fopen("results.txt", "rb");
-	
-	while(!feof(file))
-    {
-        fread(buffer,sizeof(buffer),1,file);
-        cout << buffer;
-    }
+
+    char mystring [100];
+    while ( fgets (mystring , 100 , file) != NULL )
+		cout<<mystring;	
     fclose(file);
     return 0;	
 }
