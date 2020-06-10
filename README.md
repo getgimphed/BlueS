@@ -2,7 +2,16 @@
 
 The program takes one command line argument of the path where the files to be validated are present. 
 
-To execute :
+To Execute ->
+For Linux : 
+1. cd to the Directory with Code ( BlueS.cpp and function header) 
+2. run make command followed by passing the location to out file : 
+
+    $ make
+
+    $ ./BlueS /path/to/location/
+
+For Windows : 
 1. cd to the Directory with BlueS.exe.
 2. Execute BlueS.exe with /path/to/location/
 eg :
