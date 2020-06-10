@@ -18,7 +18,7 @@ To execute :
 eg :
     "BlueS.exe C:\personal\BlueS\test-input\"
 
-The programs prints the results as :
+The programs prints the results as follows and also store in a txt file named "results.txt" :
     
     File                                    ArchType    
     ======                                  =========    
