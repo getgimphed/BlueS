@@ -1,5 +1,8 @@
 File					ArchType
 ======					=========
-libBreakpad.so			ARMV7ABI
-libphotoeffect			ARMV7ABI
-libstlport_shared.so			X86
+libanw.14.so				armeabi-v7a
+libanw.18.so				x86
+libARMClientService_arm64-v8a.so				arm64-v8a
+libiomx.13.so				mips
+libjniloader.so				x86_64
+libudev.so				armeabi-v7a

@@ -25,7 +25,8 @@ struct Elf64Hdr {
 } ;
 static int firstCall = 1;   
 
-void DetectFileArch(const char* elfFile) {
+int DetectFileArch(const char* elfFile) {
+	int returnval = 0;
 	struct Elf64Hdr elfheader;
 	FILE* file = fopen(elfFile, "rb");
 	if (file) {
@@ -59,49 +60,59 @@ void DetectFileArch(const char* elfFile) {
 			    	fputs(dataToAppend, fout);  
 			    }
 			}
+			while( elfheader.e_machine > 256)
+			{
+				elfheader.e_machine = elfheader.e_machine /256;
+			}
 			switch(elfheader.e_machine)
 			{
 				case(3):
 					{
-						elfFileStr = elfFileStr + "\t\t\tX86\n";
+						elfFileStr = elfFileStr + "\t\t\t\tx86\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 			    case(8):
 			    	{
-						elfFileStr = elfFileStr + "\t\t\tMIPS\n";
+						elfFileStr = elfFileStr + "\t\t\t\tmips\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 				case(40):
 					{
-						elfFileStr = elfFileStr + "\t\t\tARMV7ABI\n";
+						elfFileStr = elfFileStr + "\t\t\t\tarmeabi-v7a\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 				case(62):
 					{
-						elfFileStr = elfFileStr + "\t\t\tX86_64\n";
+						elfFileStr = elfFileStr + "\t\t\t\tx86_64\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 			    case(183):
 			    	{
-						elfFileStr = elfFileStr + "\t\t\tARM64_V8\n";
+						elfFileStr = elfFileStr + "\t\t\t\tarm64-v8a\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 			    case(164):
 					{
-						elfFileStr = elfFileStr + "\t\t\tARMABI\n";
+						elfFileStr = elfFileStr + "\t\t\t\tarmeabi\n";
 						const char *c = elfFileStr.c_str();
 				    	fputs(c, fout);
-				    	break;
+				    	returnval = 1;
+						break;
 				    }
 			}
 			fclose(fout);
@@ -110,4 +121,5 @@ void DetectFileArch(const char* elfFile) {
 		// finally close the file
 		fclose(file);
 	}
+	return returnval;
 }
